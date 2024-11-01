@@ -1,6 +1,26 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 function App() {
+  const [question, setQuestion] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchQuestion = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/question/1');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setQuestion(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchQuestion();
+  }, []);
+
   const moneyPyramid = useMemo(
     () =>
       [
@@ -22,32 +42,29 @@ function App() {
       ].reverse(),
     []
   );
+
   return (
     <div className="flex lg:flex-row flex-col">
       <div className="align-middle text-center">
         <h1 className="text-3xl">Sorular</h1>
-        <div className="mt-10">
-          <h2 className="text-xl p-8 font-extrabold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, enim
-            odio obcaecati voluptatibus consectetur exercitationem illum
-            perferendis incidunt quibusdam numquam labore quaerat illo, quod
-            explicabo. Voluptatibus maiores sint asperiores beatae?
-          </h2>
-          <div className="grid grid-cols-2 gap-4 mt-8 p-4 font-semibold">
-            <button className="bg-black text-white text-left p-2 rounded-lg hover:border-4 hover:border-yellow-400 border-4 border-transparent">
-              A: Aydın
-            </button>
-            <button className="bg-black text-white text-left p-2 rounded-lg hover:border-4 hover:border-yellow-400 border-4 border-transparent">
-              B
-            </button>
-            <button className="bg-black text-white text-left p-2 rounded-lg hover:border-4 hover:border-yellow-400 border-4 border-transparent">
-              C
-            </button>
-            <button className="bg-black text-white text-left p-2 rounded-lg hover:border-4 hover:border-yellow-400 border-4 border-transparent">
-              D
-            </button>
+        {error && <p>Error: {error}</p>}
+        {question ? (
+          <div className="mt-10">
+            <h2 className="text-xl p-8 font-extrabold">{question.question}</h2>
+            <div className="grid grid-cols-2 gap-4 mt-8 p-4 font-semibold">
+              {question.options.map((option, index) => (
+                <button
+                  key={index}
+                  className="bg-black text-white text-left p-2 rounded-lg hover:border-4 hover:border-yellow-400 border-4 border-transparent"
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
       <div className="basis-3/4 pt-5 justify-center items-center flex font-extrabold text-4xl">
         <ul className="text-left whitespace-nowrap">
