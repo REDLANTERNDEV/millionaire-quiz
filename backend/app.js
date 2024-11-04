@@ -4,7 +4,13 @@ const app = express();
 const fs = require('fs');
 const port = 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-secret-key'],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const secretKey = 'your_secret_key';
