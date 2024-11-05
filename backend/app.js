@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const fs = require('fs');
+
+const app = express();
 const port = 3000;
 
 const corsOptions = {
@@ -17,64 +18,85 @@ const secretKey = 'your_secret_key';
 
 const verifySecretKey = (req, res, next) => {
   const key = req.header('x-secret-key');
-  if (key && key === secretKey) {
+  if (key === secretKey) {
     next();
   } else {
     res.status(403).send('Forbidden');
   }
 };
 
-app.get('/question/:id', (req, res) => {
-  fs.readFile('data.json', 'utf8', (err, data) => {
+let askedQuestions = {
+  easy: [],
+  medium: [],
+  hard: [],
+};
+
+const getQuestion = (difficulty, res) => {
+  fs.readFile(`questions/${difficulty}.json`, 'utf8', (err, data) => {
     if (err) {
-      res.status(500).send('Error reading data');
-      return;
+      return res.status(500).send('Error reading data');
     }
     try {
       const jsonData = JSON.parse(data);
-      if (!jsonData.questions) {
-        res.status(500).send('Invalid data format');
-        return;
-      }
-      const question = jsonData.questions.find(
-        (q) => q.id === parseInt(req.params.id)
+      const questions = jsonData.questions || [];
+
+      let availableQuestions = questions.filter(
+        (q) => !askedQuestions[difficulty].includes(q.id)
       );
-      if (question) {
-        const { answer, ...questionWithoutAnswer } = question;
-        res.send(questionWithoutAnswer);
-      } else {
-        res.status(404).send('Question not found');
+
+      if (availableQuestions.length === 0) {
+        // Reset asked questions for this difficulty
+        askedQuestions[difficulty] = [];
+        availableQuestions = questions;
       }
-    } catch (parseError) {
+
+      const randomQuestion =
+        availableQuestions[
+          Math.floor(Math.random() * availableQuestions.length)
+        ];
+      askedQuestions[difficulty].push(randomQuestion.id);
+
+      const { answer, ...questionWithoutAnswer } = randomQuestion;
+      res.send({ ...questionWithoutAnswer });
+    } catch {
       res.status(500).send('Error parsing data');
     }
   });
+};
+
+const getAnswer = (difficulty, id, res) => {
+  fs.readFile(`questions/${difficulty}.json`, 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Error reading data');
+    }
+    try {
+      const jsonData = JSON.parse(data);
+      const question = jsonData.questions.find((q) => q.id === parseInt(id));
+      if (!question) {
+        return res.status(404).send('Question not found');
+      }
+      res.send({ answer: question.answer });
+    } catch {
+      res.status(500).send('Error parsing data');
+    }
+  });
+};
+
+app.get('/question/:difficulty', (req, res) => {
+  const difficulty = req.params.difficulty.toLowerCase();
+  if (!['easy', 'medium', 'hard'].includes(difficulty)) {
+    return res.status(400).send('Invalid difficulty level');
+  }
+  getQuestion(difficulty, res);
 });
 
-app.get('/answer/:id', verifySecretKey, (req, res) => {
-  fs.readFile('data.json', 'utf8', (err, data) => {
-    if (err) {
-      res.status(500).send('Error reading data');
-      return;
-    }
-    try {
-      const jsonData = JSON.parse(data);
-      if (!jsonData.questions) {
-        res.status(500).send('Invalid data format');
-        return;
-      }
-      const question = jsonData.questions.find(
-        (q) => q.id === parseInt(req.params.id)
-      );
-      if (question) {
-        res.send({ answer: question.answer });
-      } else {
-        res.status(404).send('Answer not found');
-      }
-    } catch (parseError) {
-      res.status(500).send('Error parsing data');
-    }
-  });
+app.get('/answer/:difficulty/:id', verifySecretKey, (req, res) => {
+  const difficulty = req.params.difficulty.toLowerCase();
+  const id = req.params.id;
+  if (!['easy', 'medium', 'hard'].includes(difficulty)) {
+    return res.status(400).send('Invalid difficulty level');
+  }
+  getAnswer(difficulty, id, res);
 });
 
 app.listen(port, () => {

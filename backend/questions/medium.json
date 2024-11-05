@@ -1,0 +1,169 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital city of Australia?",
+      "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+      "answer": "Canberra",
+      "difficulty": "medium"
+    },
+    {
+      "id": 2,
+      "question": "Who developed the theory of relativity?",
+      "options": [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Galileo Galilei",
+        "Nikola Tesla"
+      ],
+      "answer": "Albert Einstein",
+      "difficulty": "medium"
+    },
+    {
+      "id": 3,
+      "question": "Which element has the atomic number 1?",
+      "options": ["Helium", "Hydrogen", "Oxygen", "Carbon"],
+      "answer": "Hydrogen",
+      "difficulty": "medium"
+    },
+    {
+      "id": 4,
+      "question": "What is the largest planet in our solar system?",
+      "options": ["Earth", "Mars", "Jupiter", "Saturn"],
+      "answer": "Jupiter",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "question": "Who wrote 'Pride and Prejudice'?",
+      "options": [
+        "Jane Austen",
+        "Charlotte Bronte",
+        "Emily Bronte",
+        "Mary Shelley"
+      ],
+      "answer": "Jane Austen",
+      "difficulty": "medium"
+    },
+    {
+      "id": 6,
+      "question": "What is the hardest natural substance on Earth?",
+      "options": ["Gold", "Iron", "Diamond", "Platinum"],
+      "answer": "Diamond",
+      "difficulty": "medium"
+    },
+    {
+      "id": 7,
+      "question": "Which country is the largest by land area?",
+      "options": ["Canada", "China", "United States", "Russia"],
+      "answer": "Russia",
+      "difficulty": "medium"
+    },
+    {
+      "id": 8,
+      "question": "Who is the author of '1984'?",
+      "options": [
+        "George Orwell",
+        "Aldous Huxley",
+        "Ray Bradbury",
+        "Jules Verne"
+      ],
+      "answer": "George Orwell",
+      "difficulty": "medium"
+    },
+    {
+      "id": 9,
+      "question": "What is the main ingredient in traditional Japanese miso soup?",
+      "options": ["Tofu", "Seaweed", "Miso paste", "Soy sauce"],
+      "answer": "Miso paste",
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "question": "Which planet is closest to the sun?",
+      "options": ["Venus", "Earth", "Mercury", "Mars"],
+      "answer": "Mercury",
+      "difficulty": "medium"
+    },
+    {
+      "id": 11,
+      "question": "What is the chemical symbol for gold?",
+      "options": ["Au", "Ag", "Pb", "Pt"],
+      "answer": "Au",
+      "difficulty": "medium"
+    },
+    {
+      "id": 12,
+      "question": "Who painted the ceiling of the Sistine Chapel?",
+      "options": ["Leonardo da Vinci", "Michelangelo", "Raphael", "Donatello"],
+      "answer": "Michelangelo",
+      "difficulty": "medium"
+    },
+    {
+      "id": 13,
+      "question": "What is the smallest country in the world by land area?",
+      "options": ["Monaco", "San Marino", "Liechtenstein", "Vatican City"],
+      "answer": "Vatican City",
+      "difficulty": "medium"
+    },
+    {
+      "id": 14,
+      "question": "Which ocean is the Bermuda Triangle located in?",
+      "options": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Pacific Ocean",
+        "Arctic Ocean"
+      ],
+      "answer": "Atlantic Ocean",
+      "difficulty": "medium"
+    },
+    {
+      "id": 15,
+      "question": "Who is the Greek god of the sea?",
+      "options": ["Zeus", "Hades", "Poseidon", "Apollo"],
+      "answer": "Poseidon",
+      "difficulty": "medium"
+    },
+    {
+      "id": 16,
+      "question": "What is the capital city of Canada?",
+      "options": ["Toronto", "Vancouver", "Ottawa", "Montreal"],
+      "answer": "Ottawa",
+      "difficulty": "medium"
+    },
+    {
+      "id": 17,
+      "question": "Which country is known as the Land of the Rising Sun?",
+      "options": ["China", "Japan", "South Korea", "Thailand"],
+      "answer": "Japan",
+      "difficulty": "medium"
+    },
+    {
+      "id": 18,
+      "question": "What is the largest mammal in the world?",
+      "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+      "answer": "Blue Whale",
+      "difficulty": "medium"
+    },
+    {
+      "id": 19,
+      "question": "Who wrote the novel 'Moby-Dick'?",
+      "options": [
+        "Herman Melville",
+        "Mark Twain",
+        "Nathaniel Hawthorne",
+        "Edgar Allan Poe"
+      ],
+      "answer": "Herman Melville",
+      "difficulty": "medium"
+    },
+    {
+      "id": 20,
+      "question": "What is the capital city of Brazil?",
+      "options": ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
+      "answer": "Brasília",
+      "difficulty": "medium"
+    }
+  ]
+}

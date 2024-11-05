@@ -1,0 +1,179 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital city of France?",
+      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "answer": "Paris",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "Who painted the Mona Lisa?",
+      "options": [
+        "Vincent van Gogh",
+        "Pablo Picasso",
+        "Leonardo da Vinci",
+        "Claude Monet"
+      ],
+      "answer": "Leonardo da Vinci",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Earth", "Mars", "Jupiter", "Venus"],
+      "answer": "Mars",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Who wrote the play 'Romeo and Juliet'?",
+      "options": [
+        "William Shakespeare",
+        "George Bernard Shaw",
+        "Oscar Wilde",
+        "Jane Austen"
+      ],
+      "answer": "William Shakespeare",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "What is the largest ocean on Earth?",
+      "options": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Pacific Ocean",
+        "Arctic Ocean"
+      ],
+      "answer": "Pacific Ocean",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "Which element has the chemical symbol 'O'?",
+      "options": ["Gold", "Oxygen", "Silver", "Iron"],
+      "answer": "Oxygen",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "In which year did the Titanic sink?",
+      "options": ["1912", "1902", "1922", "1932"],
+      "answer": "1912",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "Who is known as the 'Father of Computers'?",
+      "options": [
+        "Charles Babbage",
+        "Alan Turing",
+        "Tim Berners-Lee",
+        "Bill Gates"
+      ],
+      "answer": "Charles Babbage",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "Which country is known for the landmark 'The Great Wall'?",
+      "options": ["India", "China", "Egypt", "Mexico"],
+      "answer": "China",
+      "difficulty": "easy"
+    },
+    {
+      "id": 10,
+      "question": "What is the smallest prime number?",
+      "options": ["0", "1", "2", "3"],
+      "answer": "2",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "Who discovered penicillin?",
+      "options": [
+        "Marie Curie",
+        "Louis Pasteur",
+        "Alexander Fleming",
+        "Gregor Mendel"
+      ],
+      "answer": "Alexander Fleming",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "What is the longest river in the world?",
+      "options": [
+        "Amazon River",
+        "Nile River",
+        "Yangtze River",
+        "Mississippi River"
+      ],
+      "answer": "Nile River",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "Which planet is known for its rings?",
+      "options": ["Jupiter", "Mars", "Saturn", "Neptune"],
+      "answer": "Saturn",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "In which city is the Statue of Liberty located?",
+      "options": ["New York", "Los Angeles", "Chicago", "Washington, D.C."],
+      "answer": "New York",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "What is the chemical formula for water?",
+      "options": ["H2O", "CO2", "O2", "NaCl"],
+      "answer": "H2O",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "question": "Who wrote 'The Origin of Species'?",
+      "options": [
+        "Albert Einstein",
+        "Charles Darwin",
+        "Isaac Newton",
+        "Galileo Galilei"
+      ],
+      "answer": "Charles Darwin",
+      "difficulty": "easy"
+    },
+    {
+      "id": 17,
+      "question": "What is the fastest land animal?",
+      "options": ["Lion", "Cheetah", "Horse", "Gazelle"],
+      "answer": "Cheetah",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "Which gas do plants absorb from the atmosphere?",
+      "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+      "answer": "Carbon Dioxide",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "Who is known as the 'King of Pop'?",
+      "options": ["Elvis Presley", "Michael Jackson", "Prince", "Madonna"],
+      "answer": "Michael Jackson",
+      "difficulty": "easy"
+    },
+    {
+      "id": 20,
+      "question": "Which continent is the Sahara Desert located on?",
+      "options": ["Asia", "Africa", "Australia", "North America"],
+      "answer": "Africa",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 function App() {
   const [question, setQuestion] = useState(null);
@@ -7,29 +7,42 @@ function App() {
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [isOptionDisabled, setIsOptionDisabled] = useState(false);
-  const [GetId, setGetId] = useState(1);
   const [timer, setTimer] = useState(60);
   const [isFirstQuestion, setIsFirstQuestion] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [isTimerRunning, setIsTimerRunning] = useState(true);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [questionId, setQuestionId] = useState(null);
+
+  const getDifficulty = (step) => {
+    if (step >= 1 && step <= 5) return 'easy';
+    if (step >= 6 && step <= 10) return 'medium';
+    if (step >= 11 && step <= 13) return 'hard';
+    return 'easy';
+  };
+
+  // Move fetchQuestion outside of useEffect
+  const fetchQuestion = useCallback(async () => {
+    const difficulty = getDifficulty(currentStep);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/question/${difficulty}`
+      );
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setQuestion(data);
+      setQuestionId(data.id);
+    } catch (error) {
+      setError(error.message);
+    }
+  }, [currentStep]);
 
   useEffect(() => {
-    const fetchQuestion = async () => {
-      try {
-        const response = await fetch(`http://localhost:3000/question/${GetId}`);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setQuestion(data);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-
     fetchQuestion();
-  }, [GetId]);
+  }, [fetchQuestion]);
 
   useEffect(() => {
     if (isFirstQuestion || !isTimerRunning) return;
@@ -59,7 +72,9 @@ function App() {
     if (question) {
       try {
         const response = await fetch(
-          `http://localhost:3000/answer/${question.id}`,
+          `http://localhost:3000/answer/${getDifficulty(
+            currentStep
+          )}/${questionId}`,
           {
             headers: {
               'x-secret-key': 'your_secret_key',
@@ -74,9 +89,14 @@ function App() {
         setCorrectAnswer(data.answer);
 
         if (option === data.answer) {
-          setTimeout(() => {
-            handleNextQuestion();
-          }, 1000);
+          if (currentStep === 13) {
+            setModalMessage('Tebrikler! Tüm soruları doğru bildiniz.');
+            setShowModal(true);
+          } else {
+            setTimeout(() => {
+              handleNextQuestion();
+            }, 1000);
+          }
         } else {
           setModalMessage(
             `Yanlış cevap! Doğru cevap: ${data.answer}. Baştan başlamak için butona tıklayın.`
@@ -90,7 +110,7 @@ function App() {
   };
 
   const handleNextQuestion = () => {
-    setGetId((prevId) => prevId + 1);
+    setCurrentStep((prevStep) => prevStep + 1);
     setSelectedOption(null);
     setIsAnswerCorrect(null);
     setIsOptionDisabled(false);
@@ -98,47 +118,51 @@ function App() {
     setTimer(60);
     setIsFirstQuestion(false);
     setIsTimerRunning(true);
+    setShowModal(false);
+    setQuestionId(null);
+    setQuestion(null); // Reset question before fetching new one
   };
 
   const handleRestart = () => {
-    setGetId(1);
+    setCurrentStep(1);
     setSelectedOption(null);
     setIsAnswerCorrect(null);
     setIsOptionDisabled(false);
     setCorrectAnswer(null);
     setTimer(60);
-    setIsFirstQuestion(true);
+    setIsFirstQuestion(false);
     setShowModal(false);
     setError(null);
     setIsTimerRunning(true);
+    setQuestionId(null);
+    setQuestion(null); // Reset the question
+    fetchQuestion(); // Fetch a new question
   };
 
   const moneyPyramid = useMemo(
     () =>
       [
-        { id: 1, amount: '$ 100' },
-        { id: 2, amount: '$ 200' },
-        { id: 3, amount: '$ 300' },
-        { id: 4, amount: '$ 500' },
-        { id: 5, amount: '$ 1.000' },
-        { id: 6, amount: '$ 2.000' },
-        { id: 7, amount: '$ 4.000' },
-        { id: 8, amount: '$ 8.000' },
-        { id: 9, amount: '$ 16.000' },
-        { id: 10, amount: '$ 32.000' },
-        { id: 11, amount: '$ 64.000' },
-        { id: 12, amount: '$ 125.000' },
-        { id: 13, amount: '$ 250.000' },
-        { id: 14, amount: '$ 500.000' },
-        { id: 15, amount: '$ 1.000.000' },
+        { id: 1, amount: '2.000 ₺' },
+        { id: 2, amount: '5.000 ₺' },
+        { id: 3, amount: '7.500 ₺' },
+        { id: 4, amount: '10.000 ₺' },
+        { id: 5, amount: '20.000 ₺' },
+        { id: 6, amount: '30.000 ₺' },
+        { id: 7, amount: '50.000 ₺' },
+        { id: 8, amount: '100.000 ₺' },
+        { id: 9, amount: '200.000 ₺' },
+        { id: 10, amount: '300.000 ₺' },
+        { id: 11, amount: '500.000 ₺' },
+        { id: 12, amount: '1.000.000 ₺' },
+        { id: 13, amount: '5.000.000 ₺' },
       ].reverse(),
     []
   );
 
   return (
-    <div className="flex lg:flex-row flex-col">
-      <div className="align-middle text-center">
-        <h1 className="text-3xl">Sorular</h1>
+    <div className="flex flex-row lg:flex-col items-center align-middle justify-center">
+      <div className="align-middle text-center w-full lg:w-1/2">
+        <h1 className="text-3xl">KMOİ Hg</h1>
         {error && <p>Error: {error}</p>}
         {question ? (
           <div className="mt-10">
@@ -178,15 +202,23 @@ function App() {
           !error && <p>Loading...</p>
         )}
       </div>
-      <div className="w-1/4 flex items-center justify-center">
-        <ul className="p-5 list-none w-full">
-          {moneyPyramid.map((m) => (
-            <li key={m.id} className="flex items-center p-1 rounded-md">
-              <span className="w-1/3 text-lg font-light mr-1">{m.id}</span>
-              <span className="text-xl font-medium">{m.amount}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="w-full lg:w-1/2 pt-11 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl lg:text-3xl mb-4">Ödül Listesi</h2>
+          <ul className="p-5 list-none w-full">
+            {moneyPyramid.map((m) => (
+              <li
+                key={m.id}
+                className={`flex justify-between items-center p-2 rounded-md ${
+                  currentStep === m.id ? 'bg-green-500 text-white' : ''
+                }`}
+              >
+                <span className="text-lg font-light">{m.id}</span>
+                <span className="text-lg pl-14 font-medium">{m.amount}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -194,9 +226,9 @@ function App() {
             <p className="mb-4">{modalMessage}</p>
             <button
               onClick={handleRestart}
-              className="p-2 bg-blue-500 text-white rounded"
+              className="p-2 bg-red-500 text-white rounded mt-4"
             >
-              Başa Dön
+              Baştan Başla
             </button>
           </div>
         </div>

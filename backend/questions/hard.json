@@ -1,0 +1,179 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital city of Mongolia?",
+      "options": ["Ulaanbaatar", "Astana", "Tashkent", "Bishkek"],
+      "answer": "Ulaanbaatar",
+      "difficulty": "hard"
+    },
+    {
+      "id": 2,
+      "question": "Who is the author of 'War and Peace'?",
+      "options": [
+        "Fyodor Dostoevsky",
+        "Leo Tolstoy",
+        "Anton Chekhov",
+        "Ivan Turgenev"
+      ],
+      "answer": "Leo Tolstoy",
+      "difficulty": "hard"
+    },
+    {
+      "id": 3,
+      "question": "What is the chemical symbol for the element with atomic number 74?",
+      "options": ["W", "Sn", "Pb", "Hg"],
+      "answer": "W",
+      "difficulty": "hard"
+    },
+    {
+      "id": 4,
+      "question": "Which planet has the most moons?",
+      "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+      "answer": "Saturn",
+      "difficulty": "hard"
+    },
+    {
+      "id": 5,
+      "question": "Who composed the opera 'The Magic Flute'?",
+      "options": [
+        "Ludwig van Beethoven",
+        "Johann Sebastian Bach",
+        "Wolfgang Amadeus Mozart",
+        "Franz Schubert"
+      ],
+      "answer": "Wolfgang Amadeus Mozart",
+      "difficulty": "hard"
+    },
+    {
+      "id": 6,
+      "question": "What is the hardest naturally occurring mineral?",
+      "options": ["Corundum", "Topaz", "Quartz", "Diamond"],
+      "answer": "Diamond",
+      "difficulty": "hard"
+    },
+    {
+      "id": 7,
+      "question": "Which country has the longest coastline in the world?",
+      "options": ["Australia", "Canada", "Russia", "Indonesia"],
+      "answer": "Canada",
+      "difficulty": "hard"
+    },
+    {
+      "id": 8,
+      "question": "Who is the author of 'The Divine Comedy'?",
+      "options": [
+        "Dante Alighieri",
+        "Geoffrey Chaucer",
+        "John Milton",
+        "Homer"
+      ],
+      "answer": "Dante Alighieri",
+      "difficulty": "hard"
+    },
+    {
+      "id": 9,
+      "question": "What is the main ingredient in traditional Japanese sake?",
+      "options": ["Rice", "Barley", "Wheat", "Corn"],
+      "answer": "Rice",
+      "difficulty": "hard"
+    },
+    {
+      "id": 10,
+      "question": "Which planet is known as the 'Morning Star' or 'Evening Star'?",
+      "options": ["Mars", "Venus", "Mercury", "Jupiter"],
+      "answer": "Venus",
+      "difficulty": "hard"
+    },
+    {
+      "id": 11,
+      "question": "What is the chemical symbol for the element with atomic number 79?",
+      "options": ["Ag", "Au", "Pt", "Pb"],
+      "answer": "Au",
+      "difficulty": "hard"
+    },
+    {
+      "id": 12,
+      "question": "Who painted 'The Persistence of Memory'?",
+      "options": [
+        "Pablo Picasso",
+        "Salvador Dalí",
+        "Henri Matisse",
+        "Claude Monet"
+      ],
+      "answer": "Salvador Dalí",
+      "difficulty": "hard"
+    },
+    {
+      "id": 13,
+      "question": "What is the smallest country in the world by population?",
+      "options": ["Monaco", "San Marino", "Liechtenstein", "Vatican City"],
+      "answer": "Vatican City",
+      "difficulty": "hard"
+    },
+    {
+      "id": 14,
+      "question": "Which ocean is the Mariana Trench located in?",
+      "options": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Pacific Ocean",
+        "Arctic Ocean"
+      ],
+      "answer": "Pacific Ocean",
+      "difficulty": "hard"
+    },
+    {
+      "id": 15,
+      "question": "Who is the Greek god of the underworld?",
+      "options": ["Zeus", "Hades", "Poseidon", "Apollo"],
+      "answer": "Hades",
+      "difficulty": "hard"
+    },
+    {
+      "id": 16,
+      "question": "What is the capital city of Switzerland?",
+      "options": ["Zurich", "Geneva", "Bern", "Basel"],
+      "answer": "Bern",
+      "difficulty": "hard"
+    },
+    {
+      "id": 17,
+      "question": "Which country is known as the Land of the Midnight Sun?",
+      "options": ["Norway", "Sweden", "Finland", "Iceland"],
+      "answer": "Norway",
+      "difficulty": "hard"
+    },
+    {
+      "id": 18,
+      "question": "What is the largest species of shark?",
+      "options": [
+        "Great White Shark",
+        "Hammerhead Shark",
+        "Whale Shark",
+        "Tiger Shark"
+      ],
+      "answer": "Whale Shark",
+      "difficulty": "hard"
+    },
+    {
+      "id": 19,
+      "question": "Who wrote the novel 'Crime and Punishment'?",
+      "options": [
+        "Fyodor Dostoevsky",
+        "Leo Tolstoy",
+        "Anton Chekhov",
+        "Ivan Turgenev"
+      ],
+      "answer": "Fyodor Dostoevsky",
+      "difficulty": "hard"
+    },
+    {
+      "id": 20,
+      "question": "What is the capital city of Argentina?",
+      "options": ["Buenos Aires", "Cordoba", "Rosario", "Mendoza"],
+      "answer": "Buenos Aires",
+      "difficulty": "hard"
+    }
+  ]
+}
