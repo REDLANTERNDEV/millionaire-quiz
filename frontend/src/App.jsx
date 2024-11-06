@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function App() {
   const [question, setQuestion] = useState(null);
@@ -199,7 +201,29 @@ function App() {
             )}
           </div>
         ) : (
-          !error && <p>Loading...</p>
+          !error && (
+            <div className="mt-10 animate-pulse">
+              <h2 className="text-xl p-8 font-extrabold">
+                <Skeleton
+                  height={30}
+                  baseColor="#202020"
+                  highlightColor="#444"
+                  borderRadius={12}
+                />
+              </h2>
+              <div className="grid grid-cols-2 gap-4 mt-8 p-4 font-semibold">
+                {[...Array(4)].map((_, index) => (
+                  <Skeleton
+                    key={index}
+                    height={50}
+                    baseColor="#202020"
+                    highlightColor="#444"
+                    borderRadius={12}
+                  />
+                ))}
+              </div>
+            </div>
+          )
         )}
       </div>
       <div className="w-full lg:w-1/2 pt-11 flex items-center justify-center">
