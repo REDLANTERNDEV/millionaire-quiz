@@ -2,14 +2,14 @@
   "questions": [
     {
       "id": 1,
-      "question": "What is the capital city of France?",
-      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "question": "Fransa'nın başkenti neresidir?",
+      "options": ["Berlin", "Madrid", "Paris", "Roma"],
       "answer": "Paris",
       "difficulty": "easy"
     },
     {
       "id": 2,
-      "question": "Who painted the Mona Lisa?",
+      "question": "Mona Lisa'yı kim çizdi?",
       "options": [
         "Vincent van Gogh",
         "Pablo Picasso",
@@ -21,14 +21,14 @@
     },
     {
       "id": 3,
-      "question": "Which planet is known as the Red Planet?",
-      "options": ["Earth", "Mars", "Jupiter", "Venus"],
+      "question": "Hangi gezegen Kızıl Gezegen olarak bilinir?",
+      "options": ["Dünya", "Mars", "Jüpiter", "Venüs"],
       "answer": "Mars",
       "difficulty": "easy"
     },
     {
       "id": 4,
-      "question": "Who wrote the play 'Romeo and Juliet'?",
+      "question": "'Romeo ve Juliet' oyununu kim yazdı?",
       "options": [
         "William Shakespeare",
         "George Bernard Shaw",
@@ -40,33 +40,33 @@
     },
     {
       "id": 5,
-      "question": "What is the largest ocean on Earth?",
+      "question": "Dünyadaki en büyük okyanus hangisidir?",
       "options": [
-        "Atlantic Ocean",
-        "Indian Ocean",
-        "Pacific Ocean",
-        "Arctic Ocean"
+        "Atlantik Okyanusu",
+        "Hint Okyanusu",
+        "Pasifik Okyanusu",
+        "Arktik Okyanusu"
       ],
-      "answer": "Pacific Ocean",
+      "answer": "Pasifik Okyanusu",
       "difficulty": "easy"
     },
     {
       "id": 6,
-      "question": "Which element has the chemical symbol 'O'?",
-      "options": ["Gold", "Oxygen", "Silver", "Iron"],
-      "answer": "Oxygen",
+      "question": "'O' kimyasal sembolüne sahip element hangisidir?",
+      "options": ["Altın", "Oksijen", "Gümüş", "Demir"],
+      "answer": "Oksijen",
       "difficulty": "easy"
     },
     {
       "id": 7,
-      "question": "In which year did the Titanic sink?",
+      "question": "Titanik hangi yıl battı?",
       "options": ["1912", "1902", "1922", "1932"],
       "answer": "1912",
       "difficulty": "easy"
     },
     {
       "id": 8,
-      "question": "Who is known as the 'Father of Computers'?",
+      "question": "'Bilgisayarların Babası' olarak bilinen kimdir?",
       "options": [
         "Charles Babbage",
         "Alan Turing",
@@ -78,21 +78,21 @@
     },
     {
       "id": 9,
-      "question": "Which country is known for the landmark 'The Great Wall'?",
-      "options": ["India", "China", "Egypt", "Mexico"],
-      "answer": "China",
+      "question": "'Büyük Duvar' ile tanınan ülke hangisidir?",
+      "options": ["Hindistan", "Çin", "Mısır", "Meksika"],
+      "answer": "Çin",
       "difficulty": "easy"
     },
     {
       "id": 10,
-      "question": "What is the smallest prime number?",
+      "question": "En küçük asal sayı hangisidir?",
       "options": ["0", "1", "2", "3"],
       "answer": "2",
       "difficulty": "easy"
     },
     {
       "id": 11,
-      "question": "Who discovered penicillin?",
+      "question": "Penisilini kim keşfetti?",
       "options": [
         "Marie Curie",
         "Louis Pasteur",
@@ -104,40 +104,40 @@
     },
     {
       "id": 12,
-      "question": "What is the longest river in the world?",
+      "question": "Dünyanın en uzun nehri hangisidir?",
       "options": [
-        "Amazon River",
-        "Nile River",
-        "Yangtze River",
-        "Mississippi River"
+        "Amazon Nehri",
+        "Nil Nehri",
+        "Yangtze Nehri",
+        "Mississippi Nehri"
       ],
-      "answer": "Nile River",
+      "answer": "Nil Nehri",
       "difficulty": "easy"
     },
     {
       "id": 13,
-      "question": "Which planet is known for its rings?",
-      "options": ["Jupiter", "Mars", "Saturn", "Neptune"],
-      "answer": "Saturn",
+      "question": "Halkalarıyla tanınan gezegen hangisidir?",
+      "options": ["Jüpiter", "Mars", "Satürn", "Neptün"],
+      "answer": "Satürn",
       "difficulty": "easy"
     },
     {
       "id": 14,
-      "question": "In which city is the Statue of Liberty located?",
+      "question": "Özgürlük Heykeli hangi şehirde bulunur?",
       "options": ["New York", "Los Angeles", "Chicago", "Washington, D.C."],
       "answer": "New York",
       "difficulty": "easy"
     },
     {
       "id": 15,
-      "question": "What is the chemical formula for water?",
+      "question": "Suyun kimyasal formülü nedir?",
       "options": ["H2O", "CO2", "O2", "NaCl"],
       "answer": "H2O",
       "difficulty": "easy"
     },
     {
       "id": 16,
-      "question": "Who wrote 'The Origin of Species'?",
+      "question": "'Türlerin Kökeni'ni kim yazdı?",
       "options": [
         "Albert Einstein",
         "Charles Darwin",
@@ -149,30 +149,30 @@
     },
     {
       "id": 17,
-      "question": "What is the fastest land animal?",
-      "options": ["Lion", "Cheetah", "Horse", "Gazelle"],
-      "answer": "Cheetah",
+      "question": "En hızlı kara hayvanı hangisidir?",
+      "options": ["Aslan", "Çita", "At", "Ceylan"],
+      "answer": "Çita",
       "difficulty": "easy"
     },
     {
       "id": 18,
-      "question": "Which gas do plants absorb from the atmosphere?",
-      "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-      "answer": "Carbon Dioxide",
+      "question": "Bitkiler atmosferden hangi gazı emer?",
+      "options": ["Oksijen", "Azot", "Karbondioksit", "Hidrojen"],
+      "answer": "Karbondioksit",
       "difficulty": "easy"
     },
     {
       "id": 19,
-      "question": "Who is known as the 'King of Pop'?",
+      "question": "'Popun Kralı' olarak bilinen kimdir?",
       "options": ["Elvis Presley", "Michael Jackson", "Prince", "Madonna"],
       "answer": "Michael Jackson",
       "difficulty": "easy"
     },
     {
       "id": 20,
-      "question": "Which continent is the Sahara Desert located on?",
-      "options": ["Asia", "Africa", "Australia", "North America"],
-      "answer": "Africa",
+      "question": "Sahra Çölü hangi kıtada bulunur?",
+      "options": ["Asya", "Afrika", "Avustralya", "Kuzey Amerika"],
+      "answer": "Afrika",
       "difficulty": "easy"
     }
   ]

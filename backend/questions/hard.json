@@ -2,40 +2,40 @@
   "questions": [
     {
       "id": 1,
-      "question": "What is the capital city of Mongolia?",
-      "options": ["Ulaanbaatar", "Astana", "Tashkent", "Bishkek"],
-      "answer": "Ulaanbaatar",
+      "question": "Moğolistan'ın başkenti neresidir?",
+      "options": ["Ulan Batur", "Astana", "Taşkent", "Bişkek"],
+      "answer": "Ulan Batur",
       "difficulty": "hard"
     },
     {
       "id": 2,
-      "question": "Who is the author of 'War and Peace'?",
+      "question": "'Savaş ve Barış' romanının yazarı kimdir?",
       "options": [
-        "Fyodor Dostoevsky",
-        "Leo Tolstoy",
-        "Anton Chekhov",
-        "Ivan Turgenev"
+        "Fyodor Dostoyevski",
+        "Lev Tolstoy",
+        "Anton Çehov",
+        "İvan Turgenyev"
       ],
-      "answer": "Leo Tolstoy",
+      "answer": "Lev Tolstoy",
       "difficulty": "hard"
     },
     {
       "id": 3,
-      "question": "What is the chemical symbol for the element with atomic number 74?",
+      "question": "Atom numarası 74 olan elementin kimyasal sembolü nedir?",
       "options": ["W", "Sn", "Pb", "Hg"],
       "answer": "W",
       "difficulty": "hard"
     },
     {
       "id": 4,
-      "question": "Which planet has the most moons?",
-      "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
-      "answer": "Saturn",
+      "question": "Hangi gezegen en çok uyduya sahiptir?",
+      "options": ["Jüpiter", "Satürn", "Uranüs", "Neptün"],
+      "answer": "Satürn",
       "difficulty": "hard"
     },
     {
       "id": 5,
-      "question": "Who composed the opera 'The Magic Flute'?",
+      "question": "'Sihirli Flüt' operasını kim bestelemiştir?",
       "options": [
         "Ludwig van Beethoven",
         "Johann Sebastian Bach",
@@ -47,54 +47,54 @@
     },
     {
       "id": 6,
-      "question": "What is the hardest naturally occurring mineral?",
-      "options": ["Corundum", "Topaz", "Quartz", "Diamond"],
-      "answer": "Diamond",
+      "question": "En sert doğal olarak oluşan mineral hangisidir?",
+      "options": ["Korindon", "Topaz", "Kuvars", "Elmas"],
+      "answer": "Elmas",
       "difficulty": "hard"
     },
     {
       "id": 7,
-      "question": "Which country has the longest coastline in the world?",
-      "options": ["Australia", "Canada", "Russia", "Indonesia"],
-      "answer": "Canada",
+      "question": "Dünyada en uzun kıyı şeridine sahip ülke hangisidir?",
+      "options": ["Avustralya", "Kanada", "Rusya", "Endonezya"],
+      "answer": "Kanada",
       "difficulty": "hard"
     },
     {
       "id": 8,
-      "question": "Who is the author of 'The Divine Comedy'?",
+      "question": "'İlahi Komedya' eserinin yazarı kimdir?",
       "options": [
         "Dante Alighieri",
         "Geoffrey Chaucer",
         "John Milton",
-        "Homer"
+        "Homeros"
       ],
       "answer": "Dante Alighieri",
       "difficulty": "hard"
     },
     {
       "id": 9,
-      "question": "What is the main ingredient in traditional Japanese sake?",
-      "options": ["Rice", "Barley", "Wheat", "Corn"],
-      "answer": "Rice",
+      "question": "Geleneksel Japon sake'sinin ana malzemesi nedir?",
+      "options": ["Pirinç", "Arpa", "Buğday", "Mısır"],
+      "answer": "Pirinç",
       "difficulty": "hard"
     },
     {
       "id": 10,
-      "question": "Which planet is known as the 'Morning Star' or 'Evening Star'?",
-      "options": ["Mars", "Venus", "Mercury", "Jupiter"],
-      "answer": "Venus",
+      "question": "'Sabah Yıldızı' veya 'Akşam Yıldızı' olarak bilinen gezegen hangisidir?",
+      "options": ["Mars", "Venüs", "Merkür", "Jüpiter"],
+      "answer": "Venüs",
       "difficulty": "hard"
     },
     {
       "id": 11,
-      "question": "What is the chemical symbol for the element with atomic number 79?",
+      "question": "Atom numarası 79 olan elementin kimyasal sembolü nedir?",
       "options": ["Ag", "Au", "Pt", "Pb"],
       "answer": "Au",
       "difficulty": "hard"
     },
     {
       "id": 12,
-      "question": "Who painted 'The Persistence of Memory'?",
+      "question": "'Belleğin Azmi' tablosunu kim boyamıştır?",
       "options": [
         "Pablo Picasso",
         "Salvador Dalí",
@@ -106,71 +106,71 @@
     },
     {
       "id": 13,
-      "question": "What is the smallest country in the world by population?",
-      "options": ["Monaco", "San Marino", "Liechtenstein", "Vatican City"],
-      "answer": "Vatican City",
+      "question": "Nüfus bakımından dünyanın en küçük ülkesi hangisidir?",
+      "options": ["Monako", "San Marino", "Lihtenştayn", "Vatikan Şehri"],
+      "answer": "Vatikan Şehri",
       "difficulty": "hard"
     },
     {
       "id": 14,
-      "question": "Which ocean is the Mariana Trench located in?",
+      "question": "Mariana Çukuru hangi okyanusta bulunur?",
       "options": [
-        "Atlantic Ocean",
-        "Indian Ocean",
-        "Pacific Ocean",
-        "Arctic Ocean"
+        "Atlantik Okyanusu",
+        "Hint Okyanusu",
+        "Pasifik Okyanusu",
+        "Arktik Okyanusu"
       ],
-      "answer": "Pacific Ocean",
+      "answer": "Pasifik Okyanusu",
       "difficulty": "hard"
     },
     {
       "id": 15,
-      "question": "Who is the Greek god of the underworld?",
+      "question": "Yunan yeraltı dünyasının tanrısı kimdir?",
       "options": ["Zeus", "Hades", "Poseidon", "Apollo"],
       "answer": "Hades",
       "difficulty": "hard"
     },
     {
       "id": 16,
-      "question": "What is the capital city of Switzerland?",
-      "options": ["Zurich", "Geneva", "Bern", "Basel"],
+      "question": "İsviçre'nin başkenti neresidir?",
+      "options": ["Zürih", "Cenevre", "Bern", "Basel"],
       "answer": "Bern",
       "difficulty": "hard"
     },
     {
       "id": 17,
-      "question": "Which country is known as the Land of the Midnight Sun?",
-      "options": ["Norway", "Sweden", "Finland", "Iceland"],
-      "answer": "Norway",
+      "question": "Hangi ülke 'Gece Yarısı Güneşi Ülkesi' olarak bilinir?",
+      "options": ["Norveç", "İsveç", "Finlandiya", "İzlanda"],
+      "answer": "Norveç",
       "difficulty": "hard"
     },
     {
       "id": 18,
-      "question": "What is the largest species of shark?",
+      "question": "En büyük köpekbalığı türü hangisidir?",
       "options": [
-        "Great White Shark",
-        "Hammerhead Shark",
-        "Whale Shark",
-        "Tiger Shark"
+        "Büyük Beyaz Köpekbalığı",
+        "Çekiç Başlı Köpekbalığı",
+        "Balina Köpekbalığı",
+        "Kaplan Köpekbalığı"
       ],
-      "answer": "Whale Shark",
+      "answer": "Balina Köpekbalığı",
       "difficulty": "hard"
     },
     {
       "id": 19,
-      "question": "Who wrote the novel 'Crime and Punishment'?",
+      "question": "'Suç ve Ceza' romanını kim yazdı?",
       "options": [
-        "Fyodor Dostoevsky",
-        "Leo Tolstoy",
-        "Anton Chekhov",
-        "Ivan Turgenev"
+        "Fyodor Dostoyevski",
+        "Lev Tolstoy",
+        "Anton Çehov",
+        "İvan Turgenyev"
       ],
-      "answer": "Fyodor Dostoevsky",
+      "answer": "Fyodor Dostoyevski",
       "difficulty": "hard"
     },
     {
       "id": 20,
-      "question": "What is the capital city of Argentina?",
+      "question": "Arjantin'in başkenti neresidir?",
       "options": ["Buenos Aires", "Cordoba", "Rosario", "Mendoza"],
       "answer": "Buenos Aires",
       "difficulty": "hard"

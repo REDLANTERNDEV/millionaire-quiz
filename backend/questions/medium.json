@@ -2,14 +2,14 @@
   "questions": [
     {
       "id": 1,
-      "question": "What is the capital city of Australia?",
-      "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+      "question": "Avustralya'nın başkenti neresidir?",
+      "options": ["Sidney", "Melbourne", "Canberra", "Brisbane"],
       "answer": "Canberra",
       "difficulty": "medium"
     },
     {
       "id": 2,
-      "question": "Who developed the theory of relativity?",
+      "question": "Görelilik teorisini kim geliştirdi?",
       "options": [
         "Isaac Newton",
         "Albert Einstein",
@@ -21,21 +21,21 @@
     },
     {
       "id": 3,
-      "question": "Which element has the atomic number 1?",
-      "options": ["Helium", "Hydrogen", "Oxygen", "Carbon"],
-      "answer": "Hydrogen",
+      "question": "Atom numarası 1 olan element hangisidir?",
+      "options": ["Helyum", "Hidrojen", "Oksijen", "Karbon"],
+      "answer": "Hidrojen",
       "difficulty": "medium"
     },
     {
       "id": 4,
-      "question": "What is the largest planet in our solar system?",
-      "options": ["Earth", "Mars", "Jupiter", "Saturn"],
-      "answer": "Jupiter",
+      "question": "Güneş sistemimizdeki en büyük gezegen hangisidir?",
+      "options": ["Dünya", "Mars", "Jüpiter", "Satürn"],
+      "answer": "Jüpiter",
       "difficulty": "medium"
     },
     {
       "id": 5,
-      "question": "Who wrote 'Pride and Prejudice'?",
+      "question": "'Gurur ve Önyargı'yı kim yazdı?",
       "options": [
         "Jane Austen",
         "Charlotte Bronte",
@@ -47,21 +47,21 @@
     },
     {
       "id": 6,
-      "question": "What is the hardest natural substance on Earth?",
-      "options": ["Gold", "Iron", "Diamond", "Platinum"],
-      "answer": "Diamond",
+      "question": "Dünyadaki en sert doğal madde nedir?",
+      "options": ["Altın", "Demir", "Elmas", "Platin"],
+      "answer": "Elmas",
       "difficulty": "medium"
     },
     {
       "id": 7,
-      "question": "Which country is the largest by land area?",
-      "options": ["Canada", "China", "United States", "Russia"],
-      "answer": "Russia",
+      "question": "Yüz ölçümü bakımından en büyük ülke hangisidir?",
+      "options": ["Kanada", "Çin", "Amerika Birleşik Devletleri", "Rusya"],
+      "answer": "Rusya",
       "difficulty": "medium"
     },
     {
       "id": 8,
-      "question": "Who is the author of '1984'?",
+      "question": "'1984'ün yazarı kimdir?",
       "options": [
         "George Orwell",
         "Aldous Huxley",
@@ -73,82 +73,82 @@
     },
     {
       "id": 9,
-      "question": "What is the main ingredient in traditional Japanese miso soup?",
-      "options": ["Tofu", "Seaweed", "Miso paste", "Soy sauce"],
-      "answer": "Miso paste",
+      "question": "Geleneksel Japon miso çorbasının ana malzemesi nedir?",
+      "options": ["Tofu", "Deniz yosunu", "Miso macunu", "Soya sosu"],
+      "answer": "Miso macunu",
       "difficulty": "medium"
     },
     {
       "id": 10,
-      "question": "Which planet is closest to the sun?",
-      "options": ["Venus", "Earth", "Mercury", "Mars"],
-      "answer": "Mercury",
+      "question": "Güneşe en yakın gezegen hangisidir?",
+      "options": ["Venüs", "Dünya", "Merkür", "Mars"],
+      "answer": "Merkür",
       "difficulty": "medium"
     },
     {
       "id": 11,
-      "question": "What is the chemical symbol for gold?",
+      "question": "Altının kimyasal sembolü nedir?",
       "options": ["Au", "Ag", "Pb", "Pt"],
       "answer": "Au",
       "difficulty": "medium"
     },
     {
       "id": 12,
-      "question": "Who painted the ceiling of the Sistine Chapel?",
+      "question": "Sistine Şapeli'nin tavanını kim boyadı?",
       "options": ["Leonardo da Vinci", "Michelangelo", "Raphael", "Donatello"],
       "answer": "Michelangelo",
       "difficulty": "medium"
     },
     {
       "id": 13,
-      "question": "What is the smallest country in the world by land area?",
-      "options": ["Monaco", "San Marino", "Liechtenstein", "Vatican City"],
-      "answer": "Vatican City",
+      "question": "Yüz ölçümü bakımından dünyanın en küçük ülkesi hangisidir?",
+      "options": ["Monako", "San Marino", "Lihtenştayn", "Vatikan Şehri"],
+      "answer": "Vatikan Şehri",
       "difficulty": "medium"
     },
     {
       "id": 14,
-      "question": "Which ocean is the Bermuda Triangle located in?",
+      "question": "Bermuda Şeytan Üçgeni hangi okyanusta bulunur?",
       "options": [
-        "Atlantic Ocean",
-        "Indian Ocean",
-        "Pacific Ocean",
-        "Arctic Ocean"
+        "Atlantik Okyanusu",
+        "Hint Okyanusu",
+        "Pasifik Okyanusu",
+        "Arktik Okyanusu"
       ],
-      "answer": "Atlantic Ocean",
+      "answer": "Atlantik Okyanusu",
       "difficulty": "medium"
     },
     {
       "id": 15,
-      "question": "Who is the Greek god of the sea?",
+      "question": "Denizlerin Yunan tanrısı kimdir?",
       "options": ["Zeus", "Hades", "Poseidon", "Apollo"],
       "answer": "Poseidon",
       "difficulty": "medium"
     },
     {
       "id": 16,
-      "question": "What is the capital city of Canada?",
+      "question": "Kanada'nın başkenti neresidir?",
       "options": ["Toronto", "Vancouver", "Ottawa", "Montreal"],
       "answer": "Ottawa",
       "difficulty": "medium"
     },
     {
       "id": 17,
-      "question": "Which country is known as the Land of the Rising Sun?",
-      "options": ["China", "Japan", "South Korea", "Thailand"],
-      "answer": "Japan",
+      "question": "Hangi ülke 'Doğan Güneşin Ülkesi' olarak bilinir?",
+      "options": ["Çin", "Japonya", "Güney Kore", "Tayland"],
+      "answer": "Japonya",
       "difficulty": "medium"
     },
     {
       "id": 18,
-      "question": "What is the largest mammal in the world?",
-      "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
-      "answer": "Blue Whale",
+      "question": "Dünyadaki en büyük memeli hangisidir?",
+      "options": ["Fil", "Mavi Balina", "Zürafa", "Su Aygırı"],
+      "answer": "Mavi Balina",
       "difficulty": "medium"
     },
     {
       "id": 19,
-      "question": "Who wrote the novel 'Moby-Dick'?",
+      "question": "'Moby-Dick' romanını kim yazdı?",
       "options": [
         "Herman Melville",
         "Mark Twain",
@@ -160,7 +160,7 @@
     },
     {
       "id": 20,
-      "question": "What is the capital city of Brazil?",
+      "question": "Brezilya'nın başkenti neresidir?",
       "options": ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
       "answer": "Brasília",
       "difficulty": "medium"
