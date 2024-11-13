@@ -36,7 +36,6 @@ function MainPage() {
     }
   }, [error]);
 
-  // Move fetchQuestion outside of useEffect
   const fetchQuestion = useCallback(async () => {
     const difficulty = getDifficulty(currentStep);
     try {
@@ -162,6 +161,7 @@ function MainPage() {
     setIsCallFriendUsed(false);
     setFriendMessage('');
     setIsHallAssistanceUsed(false);
+    setHallAssistanceData([]);
   };
 
   const handle50_50 = async () => {

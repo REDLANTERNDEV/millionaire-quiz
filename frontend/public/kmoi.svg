@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Add radial gradient -->
+        <radialGradient id="blueGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#0000CC"/>
+            <stop offset="70%" style="stop-color:#000088"/>
+            <stop offset="100%" style="stop-color:#000066"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Background circle with gradient -->
+    <circle cx="200" cy="200" r="180" fill="url(#blueGradient)"/>
+
+    <!-- Decorative rings -->
+    <circle cx="200" cy="200" r="160" fill="none" stroke="gold" stroke-width="4" opacity="0.7"/>
+    <circle cx="200" cy="200" r="120" fill="none" stroke="gold" stroke-width="4" opacity="0.7"/>
+    <circle cx="200" cy="200" r="80" fill="none" stroke="gold" stroke-width="4" opacity="0.7"/>
+
+    <!-- Large question mark in the center -->
+    <text x="200" y="220" font-family="Arial" font-size="150" fill="white" text-anchor="middle" dominant-baseline="middle">?</text>
+</svg>

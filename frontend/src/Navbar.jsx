@@ -1,23 +1,26 @@
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
-    <nav className="flex flex-col sm:flex-row bg-[#2C0269] p-4 items-center sm:items-end sm:justify-between">
-      <div className="mb-2 sm:mb-0">
-        <a href="http://">Logo</a>
+    <nav className="flex flex-col sm:flex-row bg-[#2C0269] p-4 items-center sm:items-center sm:justify-between">
+      <div className="mb-2 sm:mb-0 font-semibold">
+        <Link to="/">
+          <img src="/kmoi.svg" className="w-12 h-12" alt="Logo"></img>
+        </Link>
       </div>
-      <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 sm:pr-6">
-        <a href="#" className="hover:text-yellow-400">
+      <div className="flex flex-col font-semibold sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 sm:pr-6">
+        <Link to="/" className="hover:text-yellow-400">
           Ana Sayfa
-        </a>
-        <a
+        </Link>
+        <Link
           target="_blank"
-          href="https://github.com/REDLANTERNDEV/millionaire-quiz"
+          to="https://github.com/REDLANTERNDEV/millionaire-quiz"
           className="hover:text-yellow-400"
         >
           Github
-        </a>
-        <a href="/contact" className="hover:text-yellow-400">
+        </Link>
+        <Link to="/contact" className="hover:text-yellow-400 font-semibold">
           İletişim
-        </a>
+        </Link>
       </div>
     </nav>
   );
