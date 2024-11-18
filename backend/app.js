@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
+require('dotenv').config();
 
 const app = express();
 const port = 3000;
@@ -14,7 +15,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-const secretKey = 'your_secret_key';
+const secretKey = process.env.SECRET_KEY;
 
 const verifySecretKey = (req, res, next) => {
   const key = req.header('x-secret-key');

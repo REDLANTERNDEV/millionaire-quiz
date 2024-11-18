@@ -90,7 +90,7 @@ function MainPage() {
           )}/${questionId}`,
           {
             headers: {
-              'x-secret-key': 'your_secret_key',
+              'x-secret-key': import.meta.env.VITE_SECRET_KEY,
             },
           }
         );
@@ -173,7 +173,7 @@ function MainPage() {
           )}/${questionId}`,
           {
             headers: {
-              'x-secret-key': 'your_secret_key',
+              'x-secret-key': import.meta.env.VITE_SECRET_KEY,
             },
           }
         );
@@ -203,7 +203,7 @@ function MainPage() {
           )}/${questionId}`,
           {
             headers: {
-              'x-secret-key': 'your_secret_key',
+              'x-secret-key': import.meta.env.VITE_SECRET_KEY,
             },
           }
         );
@@ -230,7 +230,7 @@ function MainPage() {
           )}/${questionId}`,
           {
             headers: {
-              'x-secret-key': 'your_secret_key',
+              'x-secret-key': import.meta.env.VITE_SECRET_KEY,
             },
           }
         );
