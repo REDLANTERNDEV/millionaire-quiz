@@ -30,6 +30,9 @@ function MainPage() {
     return 'easy';
   };
 
+  const domainName= 'localhost:3000';
+
+
   useEffect(() => {
     if (error) {
       console.error('Error:', error);
@@ -40,7 +43,7 @@ function MainPage() {
     const difficulty = getDifficulty(currentStep);
     try {
       const response = await fetch(
-        `http://localhost:3000/question/${difficulty}`
+        `http://${domainName}/question/${difficulty}`
       );
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -85,7 +88,7 @@ function MainPage() {
     if (question) {
       try {
         const response = await fetch(
-          `http://localhost:3000/answer/${getDifficulty(
+          `http://${domainName}/answer/${getDifficulty(
             currentStep
           )}/${questionId}`,
           {
@@ -117,8 +120,8 @@ function MainPage() {
               <span className="text-white bg-green-500 rounded-lg p-1 font-bold">
                 {' '}
                 {data.answer}
-              </span>
-              . Baştan başlamak için butona tıklayın.
+              </span>{/*
+              */}. Baştan başlamak için butona tıklayın.
             </>
           );
           setShowModal(true);
@@ -168,7 +171,7 @@ function MainPage() {
     if (question && questionId) {
       try {
         const response = await fetch(
-          `http://localhost:3000/fiftyfifty/${getDifficulty(
+          `http://${domainName}/fiftyfifty/${getDifficulty(
             currentStep
           )}/${questionId}`,
           {
@@ -198,7 +201,7 @@ function MainPage() {
     if (question && questionId) {
       try {
         const response = await fetch(
-          `http://localhost:3000/callfriend/${getDifficulty(
+          `http://${domainName}/callfriend/${getDifficulty(
             currentStep
           )}/${questionId}`,
           {
@@ -225,7 +228,7 @@ function MainPage() {
     if (question && questionId) {
       try {
         const response = await fetch(
-          `http://localhost:3000/hallassistance/${getDifficulty(
+          `http://${domainName}/hallassistance/${getDifficulty(
             currentStep
           )}/${questionId}`,
           {
