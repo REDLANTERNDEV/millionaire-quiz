@@ -8,7 +8,7 @@ const port = 3000;
 const frontendDomain = 'http://localhost:5173';
 
 const corsOptions = {
-  origin: frontendDomain,
+  origin: 'http://localhost:5173',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization', 'x-secret-key'],
 };
