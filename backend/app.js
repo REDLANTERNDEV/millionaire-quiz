@@ -5,9 +5,10 @@ require('dotenv').config();
 
 const app = express();
 const port = 3000;
+const frontendDomain = 'http://localhost:5173';
 
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: frontendDomain,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization', 'x-secret-key'],
 };
@@ -20,6 +21,19 @@ const secretKey = process.env.SECRET_KEY;
 const verifySecretKey = (req, res, next) => {
   const key = req.header('x-secret-key');
   if (key === secretKey) {
+    next();
+  } else {
+    res.status(403).send('Forbidden');
+  }
+};
+
+const verifyReferer = (req, res, next) => {
+  const referer = req.get('Referer');
+  const origin = req.get('Origin');
+  if (
+    (referer && referer.startsWith(frontendDomain)) ||
+    (origin && origin === frontendDomain)
+  ) {
     next();
   } else {
     res.status(403).send('Forbidden');
@@ -83,7 +97,7 @@ const getAnswer = (difficulty, id, res) => {
   });
 };
 
-app.get('/question/:difficulty', (req, res) => {
+app.get('/question/:difficulty', verifyReferer, (req, res) => {
   const difficulty = req.params.difficulty.toLowerCase();
   if (!['easy', 'medium', 'hard'].includes(difficulty)) {
     return res.status(400).send('Invalid difficulty level');
