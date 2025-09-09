@@ -6,7 +6,7 @@ const rateLimit = require("express-rate-limit");
 require("dotenv").config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const frontendDomain = process.env.FRONTEND_URL || "http://localhost:5173";
 
 // Store active sessions

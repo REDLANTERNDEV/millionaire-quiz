@@ -100,6 +100,7 @@ Create a `.env` file in the `backend` directory:
 
 ```env
 # Backend environment variables
+PORT=3000
 FRONTEND_URL=http://localhost:5173
 ```
 
