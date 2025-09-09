@@ -1,7 +1,8 @@
 {
   "name": "who-wants-to-be-a-millionaire-frontend",
+  "version": "1.0.0",
+  "description": "Frontend application for Who Wants to Be a Millionaire quiz game",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +10,15 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "keywords": [
+    "quiz",
+    "millionaire",
+    "game",
+    "react",
+    "vite"
+  ],
+  "author": "REDLANTERNDEV",
+  "license": "MIT",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -1,13 +1,25 @@
 {
   "name": "who-wants-to-be-a-millionaire-backend",
   "version": "1.0.0",
+  "description": "Backend server for Who Wants to Be a Millionaire quiz game",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "node app.js"
   },
+  "keywords": [
+    "quiz",
+    "millionaire",
+    "game",
+    "express",
+    "api"
+  ],
+  "author": "REDLANTERNDEV",
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.1"
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0"
   }
 }

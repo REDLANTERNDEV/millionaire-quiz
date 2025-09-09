@@ -1,102 +1,155 @@
 # Who Wants to Be a Millionaire Quiz Game
 
-Welcome to the "Who Wants to Be a Millionaire" quiz project! This project is a fun and interactive quiz game based on the popular TV show.
+A modern web-based implementation of the classic "Who Wants to Be a Millionaire" TV show quiz game. Built with React and Node.js, featuring authentic gameplay mechanics and lifelines.
 
-## Table of Contents
+## Features
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
+- **Authentic Quiz Experience** - Faithful recreation of the TV show format
+- **Progressive Difficulty** - Questions get harder as you climb the money ladder
+- **Three Lifelines** - 50:50, Phone a Friend, and Ask the Audience
+- **Secure Session Management** - Each game session is isolated and secure
+- **Responsive Design** - Works seamlessly on desktop and mobile devices
+- **Real-time Timer** - 60-second countdown for each question
 
-## Installation
+## Getting Started
 
-### Backend Install Dependencies
+### Prerequisites
 
-1. Clone the repository:
+- Node.js (version 14 or higher)
+- npm or yarn package manager
 
-   ```sh
+### Installation
 
+1. **Clone the repository**
+
+   ```bash
    git clone https://github.com/REDLANTERNDEV/millionaire-quiz.git
-
+   cd millionaire-quiz
    ```
 
-2. Navigate to the backend directory:
+2. **Install backend dependencies**
 
-   ```sh
-
-   cd millionaire-quiz/backend
-
-   ```
-
-3. Install the dependencies:
-
-   ```sh
-
+   ```bash
+   cd backend
    npm install
    ```
 
-### Frontend Install Dependencies
+3. **Install frontend dependencies**
 
-1. Navigate to the frontend directory:
-
-   ```sh
-
+   ```bash
    cd ../frontend
-
-   ```
-
-2. Install the dependencies:
-
-   ```sh
-
    npm install
-
    ```
 
-## Usage
+### Running the Application
 
-### Run Backend
+1. **Start the backend server**
 
-1. Start the backend server:
-
-   ```sh
-
+   ```bash
+   cd backend
    npm start
-
    ```
 
-### Run Frontend
+   The API server will run on `http://localhost:3000`
 
-1. Start the frontend development server:
+2. **Start the frontend development server** (in a new terminal)
 
-   ```sh
+   ```bash
+   cd frontend
    npm run dev
    ```
+
+   The web application will be available at `http://localhost:5173`
+
+## How to Play
+
+1. **Start a Game** - The application automatically creates a secure session
+2. **Answer Questions** - Choose from 4 multiple-choice options
+3. **Use Lifelines** - Each lifeline can only be used once per game:
+   - **50:50** - Removes two incorrect answers
+   - **Phone a Friend** - Get a hint from a virtual friend
+   - **Ask the Audience** - See poll results from the audience
+4. **Climb the Ladder** - Progress through 13 questions to win the top prize
+5. **Beat the Clock** - You have 60 seconds per question (except the first)
+
+## Security & Architecture
+
+This application implements enterprise-grade security practices suitable for web applications:
+
+### Session Management
+
+Every game creates a unique, cryptographically secure session that expires after 2 hours. This ensures each player has an isolated gaming experience without interference from other users.
+
+### Rate Protection
+
+Built-in rate limiting prevents abuse by restricting each IP address to 60 requests per minute. This protects the server from spam attacks while allowing normal gameplay.
+
+### Origin Validation
+
+The API only accepts requests from the authorized frontend domain, preventing unauthorized access from external websites or malicious scripts.
+
+### Data Integrity
+
+All game logic runs server-side with client-side validation disabled. Questions and answers are never exposed to the frontend until needed, maintaining game integrity.
 
 ## Configuration
 
 ### Backend Configuration
 
-Create a `.env` file in the `backend` directory with the following content:
+Create a `.env` file in the `backend` directory:
 
 ```env
-SECRET_KEY=your_secret_key
+# Backend environment variables
+FRONTEND_URL=http://localhost:5173
 ```
 
 ### Frontend Configuration
 
-Create a `.env` file in the `frontend` directory with the following content:
+The frontend configuration is in `frontend/.env`:
 
 ```env
-VITE_SECRET_KEY=your_secret_key
+# Frontend environment variables
+VITE_API_URL=http://localhost:3000
 ```
+
+That's it! The application will run on localhost with these settings.
+
+**For Production Deployment**: Simply change the URLs to your actual domain names in both `.env` files.
+
+## Technology Stack
+
+- **Frontend**: React 18, Vite, TailwindCSS
+- **Backend**: Node.js, Express.js
+- **Security**: Session-based authentication, Rate limiting
+- **Development**: ESLint, Modern JavaScript (ES6+)
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+We welcome contributions! Here's how you can help:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style and formatting
+- Add comments for complex logic
+- Test your changes thoroughly
+- Update documentation if needed
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Inspired by the classic "Who Wants to Be a Millionaire" TV show
+- Built with modern web technologies for optimal performance
+- Designed with security and user experience in mind
+
+---
+
+_Enjoy the game and see if you can become a millionaire!_ 🎯
