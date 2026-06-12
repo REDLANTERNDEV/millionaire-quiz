@@ -29,7 +29,7 @@
     "@eslint/js": "^9.15.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3",
+    "@vitejs/plugin-react": "^6.0.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.15.0",
     "eslint-plugin-react": "^7.37.2",
@@ -38,7 +38,7 @@
     "globals": "^15.12.0",
     "postcss": "^8.5.14",
     "tailwindcss": "^3.4.15",
-    "vite": "^7.3.2"
+    "vite": "^8.0.16"
   },
   "allowScripts": {
     "esbuild@0.27.7": true
