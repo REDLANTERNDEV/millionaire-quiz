@@ -106,7 +106,7 @@ FRONTEND_URL=http://localhost:5173
 
 ### Frontend Configuration
 
-The frontend configuration is in `frontend/.env`:
+The frontend configuration is in `frontend/.env` (copy `frontend/.env.example` to get started):
 
 ```env
 # Frontend environment variables
@@ -114,6 +114,29 @@ VITE_API_URL=http://localhost:3000
 ```
 
 That's it! The application will run on localhost with these settings.
+
+### Analytics (optional)
+
+No analytics are loaded unless you opt in, so forks and local runs stay
+tracker-free. To collect page views on your own deployment, set the provider
+and its values in `frontend/.env`:
+
+**Umami** (self-hosted or cloud):
+
+```env
+VITE_ANALYTICS_PROVIDER=umami
+VITE_UMAMI_SRC=https://your-umami-instance.example/script.js
+VITE_UMAMI_WEBSITE_ID=your-website-id
+```
+
+**Google Analytics 4**:
+
+```env
+VITE_ANALYTICS_PROVIDER=google
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+These are build-time variables, so rebuild the frontend after changing them.
 
 **For Production Deployment**: Simply change the URLs to your actual domain names in both `.env` files.
 
