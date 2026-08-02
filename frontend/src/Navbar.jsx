@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 const Navbar = () => {
   return (
     <nav className="flex flex-col sm:flex-row bg-[#2C0269] p-4 items-center sm:items-center sm:justify-between">
