@@ -487,7 +487,7 @@ function MainPage() {
             </div>
           </div>
           {friendMessage && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="fixed inset-0 flex items-center justify-center bg-black/50">
               <div className="bg-slate-900 p-8 rounded-lg text-center">
                 <p className="mb-4">{friendMessage}</p>
                 <button
@@ -500,7 +500,7 @@ function MainPage() {
             </div>
           )}
           {isHallAssistanceUsed && hallAssistanceData.length > 0 && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="fixed inset-0 flex items-center justify-center bg-black/50">
               <div className="bg-slate-900 p-8 rounded-lg text-center">
                 <h3 className="text-lg font-semibold mb-4">Hall Assistance:</h3>
                 <ul className="mb-4">
@@ -531,7 +531,7 @@ function MainPage() {
             </div>
           )}
           {showModal && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="fixed inset-0 flex items-center justify-center bg-black/50">
               <div className="bg-slate-900 p-8 rounded-lg text-center">
                 <p className="mb-4">{modalMessage}</p>
                 <button
