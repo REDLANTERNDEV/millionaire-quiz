@@ -15,7 +15,7 @@ A modern web-based implementation of the classic "Who Wants to Be a Millionaire"
 
 ### Prerequisites
 
-- Node.js (version 14 or higher)
+- Node.js (version 20.19 or higher)
 - npm or yarn package manager
 
 ### Installation
@@ -27,19 +27,14 @@ A modern web-based implementation of the classic "Who Wants to Be a Millionaire"
    cd millionaire-quiz
    ```
 
-2. **Install backend dependencies**
+2. **Install frontend dependencies**
 
    ```bash
-   cd backend
+   cd frontend
    npm install
    ```
 
-3. **Install frontend dependencies**
-
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+   The backend uses only Node.js built-in modules, so it has nothing to install.
 
 ### Running the Application
 
@@ -142,8 +137,8 @@ These are build-time variables, so rebuild the frontend after changing them.
 
 ## Technology Stack
 
-- **Frontend**: React 18, Vite, TailwindCSS
-- **Backend**: Node.js, Express.js
+- **Frontend**: React 19, Vite, TailwindCSS
+- **Backend**: Node.js (built-in `http` module, no npm dependencies)
 - **Security**: Session-based authentication, Rate limiting
 - **Development**: ESLint, Modern JavaScript (ES6+)
 

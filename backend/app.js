@@ -1,36 +1,205 @@
-const express = require("express");
-const cors = require("cors");
+const http = require("http");
 const fs = require("fs");
 const crypto = require("crypto");
-const rateLimit = require("express-rate-limit");
-require("dotenv").config();
 
-const app = express();
+// Load backend/.env if present; existing environment variables take precedence
+try {
+  process.loadEnvFile();
+} catch {
+  // No .env file - rely on the environment
+}
+
 const port = process.env.PORT || 3000;
 const frontendDomain = process.env.FRONTEND_URL || "http://localhost:5173";
 
 // Store active sessions
 const activeSessions = new Map();
 
-const corsOptions = {
-  origin: frontendDomain,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ["Content-Type", "Authorization", "X-Session-Id"],
+// ---------------------------------------------------------------------------
+// Minimal HTTP plumbing (built on node:http so the backend has no npm
+// dependencies to keep patching): CORS, JSON bodies, rate limiting, routing.
+// ---------------------------------------------------------------------------
+
+const MAX_BODY_BYTES = 100 * 1024;
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": frontendDomain,
+  Vary: "Origin",
+};
+const corsPreflightHeaders = {
+  ...corsHeaders,
+  "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "Access-Control-Allow-Headers": "Content-Type,Authorization,X-Session-Id",
+  "Content-Length": "0",
 };
 
-app.use(cors(corsOptions));
-app.use(express.json());
+// Rate limiting - 60 requests per minute per IP (IPv6 grouped by /56 subnet)
+const RATE_WINDOW_MS = 1 * 60 * 1000; // 1 minute
+const RATE_MAX = 60; // Maximum 60 requests per IP
+const rateHits = new Map();
 
-// Rate limiting - 60 requests per minute per IP
-const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 60, // Maximum 60 requests per IP
-  message: "Too many requests, please try again later.",
-  standardHeaders: true,
-  legacyHeaders: false,
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, entry] of rateHits) {
+    if (entry.resetTime <= now) rateHits.delete(key);
+  }
+}, RATE_WINDOW_MS).unref();
+
+const rateLimitKey = (ip = "") => {
+  if (ip.startsWith("::ffff:")) return ip.slice(7); // IPv4-mapped IPv6
+  if (!ip.includes(":")) return ip;
+  const [head, tail = ""] = ip.split("::");
+  const headParts = head ? head.split(":") : [];
+  const tailParts = tail ? tail.split(":") : [];
+  const parts = [
+    ...headParts,
+    ...Array(8 - headParts.length - tailParts.length).fill("0"),
+    ...tailParts,
+  ].map((p) => parseInt(p, 16) || 0);
+  parts[3] &= 0xff00;
+  return parts.slice(0, 4).map((p) => p.toString(16)).join(":") + "::/56";
+};
+
+const checkRateLimit = (req, res) => {
+  const now = Date.now();
+  const key = rateLimitKey(req.socket.remoteAddress);
+  let entry = rateHits.get(key);
+  if (!entry || entry.resetTime <= now) {
+    entry = { count: 0, resetTime: now + RATE_WINDOW_MS };
+    rateHits.set(key, entry);
+  }
+  entry.count++;
+  res.setHeader(
+    "RateLimit-Policy",
+    `${RATE_MAX};w=${RATE_WINDOW_MS / 1000}`
+  );
+  res.setHeader("RateLimit-Limit", RATE_MAX);
+  res.setHeader("RateLimit-Remaining", Math.max(0, RATE_MAX - entry.count));
+  res.setHeader("RateLimit-Reset", Math.ceil((entry.resetTime - now) / 1000));
+  if (entry.count > RATE_MAX) {
+    res.status(429).send("Too many requests, please try again later.");
+    return false;
+  }
+  return true;
+};
+
+const readJsonBody = (req) =>
+  new Promise((resolve, reject) => {
+    const type = req.headers["content-type"] || "";
+    if (!/^application\/json\b/i.test(type)) {
+      req.resume();
+      return resolve(undefined);
+    }
+    const chunks = [];
+    let size = 0;
+    req.on("data", (chunk) => {
+      size += chunk.length;
+      if (size > MAX_BODY_BYTES) {
+        reject(Object.assign(new Error("Payload too large"), { status: 413 }));
+        req.destroy();
+      } else {
+        chunks.push(chunk);
+      }
+    });
+    req.on("end", () => {
+      try {
+        const text = Buffer.concat(chunks).toString("utf8");
+        resolve(text ? JSON.parse(text) : {});
+      } catch {
+        reject(Object.assign(new Error("Invalid JSON"), { status: 400 }));
+      }
+    });
+    req.on("error", reject);
+  });
+
+// Express-style helpers so the route handlers below stay readable
+const enhance = (req, res) => {
+  req.get = (name) => req.headers[name.toLowerCase()];
+  res.status = (code) => {
+    res.statusCode = code;
+    return res;
+  };
+  res.send = (body) => {
+    if (typeof body === "string") {
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+    } else {
+      body = JSON.stringify(body);
+      res.setHeader("Content-Type", "application/json; charset=utf-8");
+    }
+    res.setHeader("Content-Length", Buffer.byteLength(body));
+    res.end(req.method === "HEAD" ? undefined : body);
+    return res;
+  };
+  res.json = res.send;
+};
+
+const routes = [];
+const app = {
+  get: (path, ...handlers) => routes.push({ method: "GET", path, handlers }),
+  post: (path, ...handlers) => routes.push({ method: "POST", path, handlers }),
+};
+
+// Case-insensitive, trailing slash optional, ":name" segments become params
+const matchRoute = (method, pathname) => {
+  const segments = pathname.replace(/\/+$/, "").split("/");
+  for (const route of routes) {
+    const methodOk =
+      route.method === method || (route.method === "GET" && method === "HEAD");
+    const routeSegments = route.path.split("/");
+    if (!methodOk || routeSegments.length !== segments.length) continue;
+    const params = {};
+    const matched = routeSegments.every((seg, i) => {
+      if (seg.startsWith(":")) {
+        if (!segments[i]) return false;
+        try {
+          params[seg.slice(1)] = decodeURIComponent(segments[i]);
+        } catch {
+          return false;
+        }
+        return true;
+      }
+      return seg.toLowerCase() === segments[i].toLowerCase();
+    });
+    if (matched) return { handlers: route.handlers, params };
+  }
+  return null;
+};
+
+const runHandlers = (handlers, req, res) => {
+  let i = 0;
+  const next = () => {
+    const handler = handlers[i++];
+    if (handler) handler(req, res, next);
+  };
+  next();
+};
+
+const server = http.createServer(async (req, res) => {
+  enhance(req, res);
+  try {
+    if (req.method === "OPTIONS") {
+      res.writeHead(204, corsPreflightHeaders);
+      return res.end();
+    }
+    for (const [name, value] of Object.entries(corsHeaders)) {
+      res.setHeader(name, value);
+    }
+    if (!checkRateLimit(req, res)) return;
+
+    const { pathname } = new URL(req.url, "http://localhost");
+    const route = matchRoute(req.method, pathname);
+    if (!route) {
+      return res.status(404).send(`Cannot ${req.method} ${pathname}`);
+    }
+    req.params = route.params;
+    req.body = (await readJsonBody(req)) ?? {};
+    runHandlers(route.handlers, req, res);
+  } catch (err) {
+    if (!res.headersSent) {
+      res.status(err.status || 500).send(err.status ? err.message : "Internal Server Error");
+    }
+  }
 });
-
-app.use(limiter);
 
 const verifyReferer = (req, res, next) => {
   const referer = req.get("Referer");
@@ -302,6 +471,6 @@ app.get(
   }
 );
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

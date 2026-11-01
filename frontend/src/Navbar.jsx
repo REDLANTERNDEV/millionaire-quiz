@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import Link from './Link';
 const Navbar = () => {
   return (
     <nav className="flex flex-col sm:flex-row bg-[#2C0269] p-4 items-center sm:items-center sm:justify-between">
@@ -11,13 +11,14 @@ const Navbar = () => {
         <Link to="/" className="hover:text-yellow-400">
           Ana Sayfa
         </Link>
-        <Link
+        <a
           target="_blank"
-          to="https://github.com/REDLANTERNDEV/millionaire-quiz"
+          rel="noreferrer"
+          href="https://github.com/REDLANTERNDEV/millionaire-quiz"
           className="hover:text-yellow-400"
         >
           Github
-        </Link>
+        </a>
         <Link to="/contact" className="hover:text-yellow-400 font-semibold">
           İletişim
         </Link>
